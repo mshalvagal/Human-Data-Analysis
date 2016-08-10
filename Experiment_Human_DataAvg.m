@@ -13,7 +13,7 @@ load('nFileDat.mat');
 L = 1 + mean([nFileDat(1).stage(stg).dat(1:3,:,1);nFileDat(3).stage(stg).dat(1:3,:,1);nFileDat(5).stage(stg).dat(1:3,:,1);nFileDat(11).stage(stg).dat(1:3,:,1)]',2)/81;
 Ldot = mean([nFileDat(1).stage(stg).dat(1:3,:,2);nFileDat(3).stage(stg).dat(1:3,:,2);nFileDat(5).stage(stg).dat(1:3,:,2);nFileDat(11).stage(stg).dat(1:3,:,2)]',2)/81;
 Lddot = mean([nFileDat(1).stage(stg).dat(1:3,:,3);nFileDat(3).stage(stg).dat(1:3,:,3);nFileDat(5).stage(stg).dat(1:3,:,3);nFileDat(11).stage(stg).dat(1:3,:,3)]',2)/81;
-secondary_afferent = firing_rate([nFileDat(1).stage(stg).dat(1:3,:,6);nFileDat(3).stage(stg).dat(1:3,:,6);nFileDat(5).stage(stg).dat(1:3,:,6);nFileDat(11).stage(stg).dat(1:3,:,6)]',dt,Tsim,10);
+secondary_afferent = firing_rate([nFileDat(1).stage(stg).dat(1:3,:,6);nFileDat(3).stage(stg).dat(1:3,:,6);nFileDat(5).stage(stg).dat(1:3,:,6);nFileDat(11).stage(stg).dat(1:3,:,6)]',dt,Tsim,10,1);
 %secondary_afferent = temp;
 %secondary_afferent = spline(x,y,t);
 primary_afferent = zeros(size(t));

@@ -1,4 +1,4 @@
-function out = firing_rate(secondary_afferent,dt,Tsim,order)
+function out = firing_rate(secondary_afferent,dt,Tsim,order,fit)
     t = (0:dt:Tsim)';
     for index = 1:size(secondary_afferent,2)
         secondary_afferent(:,index) = abs(ddt(secondary_afferent(:,index),dt));
@@ -17,7 +17,10 @@ function out = firing_rate(secondary_afferent,dt,Tsim,order)
                 i = i+1;
             end
         end
-        %secondary_afferent(:,index) = polyval(polyfit(t,temp,order),t);
-        secondary_afferent(:,index) = temp;
+        if fit == 1
+            secondary_afferent(:,index) = polyval(polyfit(t,temp,order),t);
+        else
+            secondary_afferent(:,index) = temp;
+        end
     end
     out = mean(secondary_afferent,2);
